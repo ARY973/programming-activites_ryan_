@@ -1,0 +1,388 @@
+# ==============================================================================
+# Programming Activity 1: Palindrome Check (3-Digit Number)
+# ==============================================================================
+print("-" * 50)
+print("ACTIVITY 1: 3-Digit Palindrome Check")
+
+# Create a variable, which stores user input. Prompt the user to enter a 3 digit number.
+while True:
+    try:
+        # Get input and convert it to an integer
+        user_input_str = input("Enter a 3-digit number (e.g., 121, 345): ")
+        user_input_int = int(user_input_str)
+        
+        # Simple validation for a 3-digit number (100 to 999)
+        if 100 <= user_input_int <= 999:
+            break
+        else:
+            print("That is not a 3-digit number. Please try again.")
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+# To get the first digit alone, floor division by 100.
+first_digit = user_input_int // 100
+
+# To get the 3rd digit alone, modulus by 10.
+third_digit = user_input_int % 10
+
+# Check if the first digit and 3rd digit are the same.
+if first_digit == third_digit:
+    # If they are the same print("palindrome!!!!").
+    print("palindrome!!!!")
+else:
+    # Else print("not palindrome!")
+    print("not palindrome!")
+
+print("-" * 50)
+
+
+# ==============================================================================
+# Programming Activity 2: Series Summation (Loop)
+# ==============================================================================
+print("ACTIVITY 2: Series Summation")
+
+# variable to track the sum
+series_sum = 0.0
+# create a variable for the denominator (starts at 2 for 1/2)
+denominator = 2
+
+# for loop for 1000 iterations
+# start for loop at 1, go to 1000
+for i in range(1, 1001):
+    # Calculate the term (1 / denominator)
+    term = 1 / denominator
+    # Add the term to the sum
+    series_sum += term
+    # Update the denominator for the next iteration (2, 4, 8, 16, ...)
+    denominator *= 2
+
+# The result of the series: 1/2 + 1/4 + 1/8 + ... for 1000 iterations.
+# This series converges to 1, as it is a geometric series.
+print(f"The sum of the series after 1000 iterations is: {series_sum:.15f}")
+print("What number is the result? The result is very close to 1.0 (approaching 1).")
+
+print("-" * 50)
+
+
+# ==============================================================================
+# Programming Activity 3: Car Seat Safety Logic (If Statements and Booleans)
+# ==============================================================================
+print("ACTIVITY 3: Car Seat Safety Logic")
+
+# Ask the user for a child's age and weight.
+while True:
+    try:
+        age = int(input("Enter the child's age in years: "))
+        if age < 0:
+            print("Age must be non-negative.")
+            continue
+        break
+    except ValueError:
+        print("Invalid input for age.")
+
+while True:
+    try:
+        weight = float(input("Enter the child's weight in pounds: "))
+        if weight <= 0:
+            print("Weight must be positive.")
+            continue
+        break
+    except ValueError:
+        print("Invalid input for weight.")
+
+# Use Boolean variables to store the results of the criteria.
+
+# - if a child is 12 years old or older, they can sit in the front, regardless of weight.
+can_sit_12_or_older = age >= 12
+
+# - if a child is 11 years old, and over 90 pounds, they can sit in the front seat.
+can_sit_11_over_90 = (age == 11) and (weight > 90)
+
+# - if a child is under 11 years old, and over 100 pounds, they can sit in the front seat
+can_sit_under_11_over_100 = (age < 11) and (weight > 100)
+
+# Combine the criteria to determine the final decision
+can_sit_in_front = (
+    can_sit_12_or_older or
+    can_sit_11_over_90 or
+    can_sit_under_11_over_100
+)
+
+# Use if statements and the Boolean variables created above to print a message
+print("\n--- Decision ---")
+if can_sit_in_front:
+    print("The child MAY sit in the front seat.")
+else:
+    # - if a child does meet the criteria above they cannot sit in the front seat.
+    print("The child MAY NOT sit in the front seat.")
+
+print("-" * 50)
+
+
+# ==============================================================================
+# Programming Activity 4: Simple Function Definition (Welcome Message)
+# ==============================================================================
+print("ACTIVITY 4: Simple Function Definition")
+
+# Use the def command to define a function "welcome_fctn"
+# Add a parameter list with one variable "name", i.e. (name)
+def welcome_fctn(name):
+    # Print "Welcome " name in the function body.
+    print(f"Welcome {name}")
+
+# Call the function, welcome_fctn(<your_name>)
+print("Calling welcome_fctn('Alice'):")
+welcome_fctn("Alice")
+
+print("-" * 50)
+
+
+# ==============================================================================
+# Programming Activity 5: Function with Return Value
+# ==============================================================================
+print("ACTIVITY 5: Function with Return Value")
+
+# Update the function in activity one (Activity 4) to return a string variable.
+
+def welcome_fctn_v2(name):
+    # Create a new string variable in the function called, welcome_message.
+    # The variable welcome_message should be assigned the value "Welcome " name.
+    welcome_message = f"Welcome {name}"
+    
+    # Return the variable welcome_message.
+    return welcome_message
+
+# Test 1: Print the returned value directly
+print("Test 1: Printing the returned value directly:")
+print(welcome_fctn_v2("Bob"))
+
+# Test 2: Create a variable to store what is returned by the function then print that
+print("\nTest 2: Storing the returned value in a variable and then printing:")
+returned_message = welcome_fctn_v2("Charlie")
+print(returned_message)
+
+print("-" * 50)
+
+
+# ==============================================================================
+# Programming Activity 6: Function with Multiple Arguments
+# ==============================================================================
+print("ACTIVITY 6: Function with Multiple Arguments")
+
+# Update the function to have 3 variables: name (string), age (int), favorite_color (string).
+def welcome_fctn_v3(name, age, favorite_color):
+    # Create a new variable called welcome_message and assign it to the value:
+    # "Welcome <name>, you are <age> years old, and <favorite_color> is your favorite color"
+    welcome_message = (
+        f"Welcome {name}, you are {age} years old, and {favorite_color} is your favorite color"
+    )
+    
+    # Return the variable welcome_message.
+    return welcome_message
+
+# To test this, call welcome_fctn with 3 arguments
+test_message = welcome_fctn_v3("David", 25, "Blue")
+print("Calling welcome_fctn_v3('David', 25, 'Blue'):")
+print(test_message)
+
+print("-" * 50)
+
+
+# ==============================================================================
+# Additional Challenge Question 1: Simple ATM Machine
+# ==============================================================================
+print("CHALLENGE 1: Simple ATM Machine")
+
+balance = 1000.00
+is_running = True
+
+while is_running:
+    print("\nATM Options:")
+    print("1: Check Balance")
+    print("2: Deposit Money")
+    print("3: Withdraw Money")
+    print("4: Quit")
+
+    option = input("Enter option (1-4): ")
+
+    # Use nested if statements for handling these options.
+    if option == '1':
+        # Check Balance
+        print(f"Your current balance is: ${balance:,.2f}")
+    
+    elif option == '2':
+        # Deposit Money
+        try:
+            deposit_amount = float(input("Enter amount to deposit: $"))
+            if deposit_amount > 0:
+                balance += deposit_amount
+                print(f"${deposit_amount:,.2f} deposited successfully.")
+                print(f"New balance is: ${balance:,.2f}")
+            else:
+                print("Deposit amount must be positive.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    elif option == '3':
+        # Withdraw Money
+        try:
+            withdrawal_amount = float(input("Enter amount to withdraw: $"))
+            if withdrawal_amount > 0:
+                # Check if they have sufficient funds
+                if balance >= withdrawal_amount:
+                    balance -= withdrawal_amount
+                    print(f"${withdrawal_amount:,.2f} withdrawn successfully.")
+                    print(f"New balance is: ${balance:,.2f}")
+                else:
+                    print("Insufficient funds. Withdrawal denied.")
+            else:
+                print("Withdrawal amount must be positive.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+            
+    elif option == '4':
+        # Quit
+        print("Thank you for using the ATM. Goodbye!")
+        is_running = False
+    
+    else:
+        print("Invalid option. Please enter a number between 1 and 4.")
+
+print("-" * 50)
+
+
+# ==============================================================================
+# Additional Challenge Question 2: Multiplication Table
+# ==============================================================================
+print("CHALLENGE 2: Multiplication Table")
+
+# Ask the user to enter a number
+while True:
+    try:
+        table_number = int(input("Enter the number for the multiplication table: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+print(f"\nMultiplication Table for {table_number}:")
+
+# Use the range() function to generate a table of multiplication from 1 to 10
+# range(1, 11) generates numbers 1, 2, 3, ..., 10
+for i in range(1, 11):
+    result = table_number * i
+    # Print in the format: 5 x 1 = 5
+    print(f"{table_number} x {i} = {result}")
+
+print("-" * 50)
+
+
+# ==============================================================================
+# Additional Challenge Question 3: Password Strength Checker
+# ==============================================================================
+print("CHALLENGE 3: Password Strength Checker")
+
+# Prompt the user to enter a password
+password = input("Enter a password to check its strength: ")
+
+# Initialize Boolean variables for each criteria
+has_min_length = False
+has_uppercase = False
+has_lowercase = False
+has_digit = False
+
+# Check length
+if len(password) >= 8:
+    has_min_length = True
+
+# Iterate through the password to check for other criteria
+for char in password:
+    if char.isupper():
+        has_uppercase = True
+    elif char.islower():
+        has_lowercase = True
+    elif char.isdigit():
+        has_digit = True
+
+# Check if all criteria are met
+is_strong = has_min_length and has_uppercase and has_lowercase and has_digit
+
+print("\n--- Strength Report ---")
+if is_strong:
+    print("Password is strong! 🎉")
+else:
+    print("Password is weak. It does not meet the following required criteria:")
+    # Provide feedback on which criteria were missed
+    if not has_min_length:
+        print(" - Must be at least 8 characters long.")
+    if not has_uppercase:
+        print(" - Must contain at least one uppercase letter.")
+    if not has_lowercase:
+        print(" - Must contain at least one lowercase letter.")
+    if not has_digit:
+        print(" - Must contain at least one digit.")
+
+print("-" * 50)
+
+
+# ==============================================================================
+# Additional Challenge Question 4: Weather Decision-Making
+# ==============================================================================
+print("CHALLENGE 4: Weather Decision-Making (Camping)")
+
+# Prompt the user for input
+weather = input("Enter weather conditions (e.g., clear, rain, snow, cloudy): ").strip().lower()
+
+while True:
+    try:
+        temp = float(input("Enter temperature in °F (e.g., 70): "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a number for the temperature.")
+
+while True:
+    try:
+        wind_speed = float(input("Enter wind speed in mph (e.g., 15): "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a number for the wind speed.")
+
+
+# Determine the criteria using Boolean expressions
+# 1. The weather should be either clear or partly cloudy.
+is_favorable_weather = weather in ["clear", "partly cloudy"]
+
+# 2. The temperature should be between 50°F (10°C) and 85°F (30°C).
+is_ideal_temp = 50 <= temp <= 85
+
+# 3. It should not be raining or snowing.
+not_raining_or_snowing = weather not in ["rain", "snow", "raining", "snowing"]
+
+# 4. It should not be too windy (wind speed less than 20 mph).
+is_low_wind = wind_speed < 20
+
+# Overall decision: all criteria must be True
+is_good_day_for_camping = (
+    is_favorable_weather and
+    is_ideal_temp and
+    not_raining_or_snowing and
+    is_low_wind
+)
+
+print("\n--- Camping Decision ---")
+if is_good_day_for_camping:
+    print("It's a good day to go camping! 🏕️☀️")
+else:
+    print("It is NOT a good day to go camping. The following criteria were not met:")
+    
+    # Provide feedback on why the trip is not recommended
+    if not is_favorable_weather:
+        print(f" - Unfavorable weather: '{weather}' (should be clear or partly cloudy).")
+    if not is_ideal_temp:
+        print(f" - Unfavorable temperature: {temp}°F (should be between 50°F and 85°F).")
+    if not not_raining_or_snowing:
+        # Note: This check is partially redundant with is_favorable_weather, but good for specific feedback
+        print(f" - Cannot go camping in the rain or snow (current condition: {weather}).")
+    if not is_low_wind:
+        print(f" - Wind is too high: {wind_speed} mph (should be less than 20 mph).")
+
+print("-" * 50)
