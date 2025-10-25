@@ -1,0 +1,86 @@
+# question 1 
+# Create a list of all even numbers from 2 to 100 (inclusive)
+even_numbers = [num for num in range(2, 101) if num % 2 == 0]
+
+print(even_numbers)
+
+#QUESTION 2 
+# Input list with leading/trailing spaces
+input_list = ["  apple ", "banana", " cherry\t", "grapefruit "]
+
+# Use list comprehension to strip spaces from each string
+cleaned_list = [s.strip() for s in input_list]
+
+print(f"Original list: {input_list}")
+print(f"Cleaned list: {cleaned_list}")
+
+#QUESTION 3 
+# 1. Get the user's name
+user_name = input("Please enter your name: ")
+
+# 2. Change the string to be all upper case
+name_all_caps = user_name.upper()
+
+# 3. Print the welcome message
+print(f"welcome, {name_all_caps}!")
+
+#QUESTION 4 
+# Initial sentence variable
+sentence = "dude, I just biked down that mountain and at first I was like Whoa, and then I was like Whoa"
+
+# Print the sentence before any changes
+print(f"Original Sentence:\n{sentence}")
+print("-" * 30)
+
+# 1. Change the first letter to upper case using capitalize()
+sentence = sentence.capitalize()
+
+# 2. Create a list called "words" using the split() function
+words = sentence.split()
+
+# Identify the index of the Whoa instances:
+# The words are at index 10 and index 17
+# Example: ['Dude,', 'I', 'just', 'biked', 'down', 'that', 'mountain', 'and', 'at', 'first', 'Whoa,', 'and', 'then', 'I', 'was', 'like', 'Whoa']
+
+# Find the indices of the target word "Whoa" or "Whoa,"
+
+# In the case of the provided sentence, after capitalize(), the words list is:
+# ['Dude,', 'I', 'just', 'biked', 'down', 'that', 'mountain', 'and', 'at', 'first', 'I', 'was', 'like', 'Whoa,', 'and', 'then', 'I', 'was', 'like', 'Whoa']
+
+# Correcting for the split (note: the comma attaches to the word):
+# The first instance is 'Whoa,' (index 13)
+# The second instance is 'Whoa' (index 19)
+
+# 3. Change the first "Whoa," to "whoa," and the second "Whoa" to "WHOA"
+# Assuming the list structure from the text example
+try:
+    # First instance (index 13 in the standard split of the original sentence)
+    if words[13] == 'Whoa,':
+        words[13] = 'whoa,'
+    
+    # Second instance (index 19)
+    if words[19] == 'Whoa':
+        words[19] = 'WHOA'
+        
+except IndexError:
+    # Fallback logic for slightly different splits/commas
+    # Find and replace the instances directly in the list
+    first_whoa_index = -1
+    for i, word in enumerate(words):
+        if 'Whoa' in word:
+            if first_whoa_index == -1:
+                # Change the first instance to "whoa" (all lower)
+                words[i] = words[i].replace('Whoa', 'whoa')
+                first_whoa_index = i
+            else:
+                # Change the second instance to "WHOA" (all upper)
+                words[i] = words[i].replace('Whoa', 'WHOA')
+                break
+
+# 4. Rejoin the words into a new sentence
+new_sentence = " ".join(words)
+
+# 5. Append an exclamation point and print the new sentence
+new_sentence += "!"
+
+print(f"Modified Sentence:\n{new_sentence}")
