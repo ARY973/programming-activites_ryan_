@@ -1,0 +1,36 @@
+--- Individual Trade Profits (10-Day MA, 1% Threshold) ---
+Day 36: 🟢 BUY at $421.06
+Trade 38: Profit = $41.22 (Sell: $462.28, Buy: $421.06)
+Day 40: 🟢 BUY at $431.66
+Trade 51: Profit = $-3.44 (Sell: $428.22, Buy: $431.66)
+Day 57: 🟢 BUY at $406.58
+Trade 96: Profit = $-157.87 (Sell: $248.71, Buy: $406.58)
+Day 106: 🟢 BUY at $239.43
+Trade 109: Profit = $32.77 (Sell: $272.20, Buy: $239.43)
+Day 110: 🟢 BUY at $252.40
+Trade 118: Profit = $-1.66 (Sell: $250.74, Buy: $252.40)
+Day 145: 🟢 BUY at $342.69
+Trade 155: Profit = $-13.56 (Sell: $329.13, Buy: $342.69)
+Day 163: 🟢 BUY at $323.63
+Trade 172: Profit = $-10.12 (Sell: $313.51, Buy: $323.63)
+Day 181: 🟢 BUY at $305.30
+Trade 183: Profit = $20.29 (Sell: $325.59, Buy: $305.30)
+Day 185: 🟢 BUY at $319.04
+Trade 190: Profit = $0.87 (Sell: $319.91, Buy: $319.04)
+Day 200: 🟢 BUY at $323.90
+Trade 202: Profit = $16.11 (Sell: $340.01, Buy: $323.90)
+Day 207: 🟢 BUY at $333.87
+Trade 211: Profit = $16.97 (Sell: $350.84, Buy: $333.87)
+Day 231: 🟢 BUY at $429.83
+Trade 232: Profit = $23.42 (Sell: $453.25, Buy: $429.83)
+Day 233: 🟢 BUY at $433.09
+Trade 241: Profit = $6.22 (Sell: $439.31, Buy: $433.09)
+Day 250: 🟢 BUY at $440.10
+Trade 251: Profit = $16.46 (Sell: $456.56, Buy: $440.10)
+
+========================================
+📈 Final Trading Results (Mean Reversion: 10-Day MA, 1% Bands)
+========================================
+First Buy Price: $421.06
+Total Profit from all trades: $-12.32
+Final Profit Percentage: -2.93%
